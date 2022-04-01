@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://com/esteban/webservices/personservice" xmlns:person="http://person.webservices.esteban.com" targetNamespace="http://com/esteban/webservices/personservice" elementFormDefault="qualified">
+	<xsd:import namespace="http://person.webservices.esteban.com" schemaLocation="PersonDetails.xsd"/>
+	<xsd:element name="PersonDetailsRequest">
+		<xsd:complexType>
+			<xsd:sequence>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="PersonDetailsResponse">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="PersonDetails" type="person:Person"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

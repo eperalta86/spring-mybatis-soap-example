@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.esteban.mapper.PersonMapper">
+	
+	<resultMap id="result" type="com.esteban.domain.PersonDomain">
+        <result property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="standard" column="standard"/>
+        <result property="age" column="age"/>
+        <result property="sex" column="sex"/>
+    </resultMap>
+	
+	<select id="getAllPerson" resultMap="result">
+		SELECT id,name,standard,age,sex 
+		FROM person; 
+	</select>
+	
+	<insert id="savePerson" parameterType="com.esteban.domain.PersonDomain">
+		INSERT INTO person (id,name,standard,age,sex) 
+    	VALUE (#{id},#{name},#{standard},#{age},#{sex})
+	</insert>
+	
+	<update id="updatePerson" parameterType="com.esteban.domain.PersonDomain"> 
+  		UPDATE person
+  		SET
+  			name = #{name},  
+			standard = #{standard},  
+			age = #{age},  
+			sex = #{sex} 
+  		where id = #{id} 
+	</update>
+	
+	<delete id="deletePerson" parameterType="int">
+    	DELETE FROM person
+    	WHERE id = #{id}
+    </delete>
+</mapper>
